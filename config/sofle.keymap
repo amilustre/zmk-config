@@ -121,16 +121,16 @@
         // NAV: hold left inner thumb  (Layer 2)
         // Top row: F1-F6
         // Second row: F7-F12
-        // Home row: transparent
-        // Bottom row: Vim arrows H← J↓ K↑ L→
+        // Home row: Vim arrows H← J↓ K↑ L→
+        // Bottom row: transparent
 
         nav_layer {
             display-name = "nav";
             bindings = <
 &kp F1  &kp F2  &kp F3            &kp F4        &kp F5  &kp F6                     &trans  &trans    &trans    &trans   &trans     &trans
 &kp F7  &kp F8  &kp F9            &kp F10       &kp F11 &kp F12                    &trans  &trans    &trans    &trans   &trans     &trans
-&trans  &trans  &trans            &trans        &trans  &trans                     &trans  &trans    &trans    &trans   &trans     &trans
-&trans  &trans  &trans            &trans        &trans  &trans  &trans     &trans  &trans  &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT  &trans
+&trans  &trans  &trans            &trans        &trans  &trans                     &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans
+&trans  &trans  &trans            &trans        &trans  &trans  &trans     &trans  &trans  &trans    &trans    &trans   &trans     &trans
                 &kp LEFT_CONTROL  &kp LEFT_ALT  &trans  &trans  &kp DEL    &trans  &trans  &trans    &trans    &trans
             >;
 
