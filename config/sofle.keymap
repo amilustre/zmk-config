@@ -56,19 +56,6 @@
             hold-trigger-on-release;
         };
 
-        // Left encoder: volume rotation + mute on press
-        left_encoder: left_encoder {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <2>;
-            bindings = <&kp C_MUTE>, <&kp>, <&kp>;
-        };
-
-        // Right encoder: workspace rotation + overview toggle on press
-        right_encoder: right_encoder {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <2>;
-            bindings = <&kp LG(LS(TAB))>, <&kp>, <&kp>;
-        };
     };
 
     combos {
@@ -105,8 +92,8 @@
             >;
 
             sensor-bindings =
-                <&left_encoder C_VOL_DN C_VOL_UP>,
-                <&right_encoder LC(LEFT) LC(RIGHT)>;
+                <&inc_dec_kp C_VOL_DN C_VOL_UP>,
+                <&inc_dec_kp LC(LEFT) LC(RIGHT)>;
         };
 
         // SYM: hold right inner thumb  (Layer 1)
@@ -127,8 +114,8 @@
             >;
 
             sensor-bindings =
-                <&left_encoder LC(Z) LC(Y)>,
-                <&right_encoder LC(LEFT) LC(RIGHT)>;
+                <&inc_dec_kp LC(Z) LC(Y)>,
+                <&inc_dec_kp LC(LEFT) LC(RIGHT)>;
         };
 
         // NAV: hold left inner thumb  (Layer 2)
@@ -148,8 +135,8 @@
             >;
 
             sensor-bindings =
-                <&left_encoder C_VOL_DN C_VOL_UP>,
-                <&right_encoder LC(LEFT) LC(RIGHT)>;
+                <&inc_dec_kp C_VOL_DN C_VOL_UP>,
+                <&inc_dec_kp LC(LEFT) LC(RIGHT)>;
         };
 
         // FUN: SYM + NAV simultaneously  (Layer 3 — highest priority, overrides everything)
@@ -169,8 +156,8 @@
             >;
 
             sensor-bindings =
-                <&left_encoder C_VOL_DN C_VOL_UP>,
-                <&right_encoder LC(LEFT) LC(RIGHT)>;
+                <&inc_dec_kp C_VOL_DN C_VOL_UP>,
+                <&inc_dec_kp LC(LEFT) LC(RIGHT)>;
         };
     };
 };
