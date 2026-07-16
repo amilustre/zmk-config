@@ -55,6 +55,20 @@
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 42 50 51 52 53 54>;
             hold-trigger-on-release;
         };
+
+        // Left encoder: volume rotation + mute on press
+        left_encoder: left_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp C_MUTE>, <&kp>, <&kp>;
+        };
+
+        // Right encoder: workspace rotation + overview toggle on press
+        right_encoder: right_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp LG(LS(TAB))>, <&kp>, <&kp>;
+        };
     };
 
     combos {
@@ -87,19 +101,19 @@
 &kp ESC    &kp Q        &kp W        &kp E         &kp R          &kp T                          &kp Y   &kp U          &kp I         &kp O        &kp P           &kp BSPC
 &kp TAB    &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHIFT F  &kp G                          &kp H   &hmr RSHIFT J  &hmr RCTRL K  &hmr RALT L  &hmr RGUI SEMI  &kp SQT
 &kp LSHFT  &kp Z        &kp X        &kp C         &kp V          &kp B   &none       &none      &kp N   &kp M          &kp COMMA     &kp DOT      &kp FSLH        &kp RSHFT
-                        &kp LGUI     &kp LALT      &kp LCTRL      &mo 1   &kp BSPC    &kp SPACE  &mo 2   &kp ENTER      &kp RALT      &kp RGUI
+                        &kp LGUI     &kp LALT      &kp LCTRL      &mo 2   &kp BSPC    &kp SPACE  &mo 1   &kp ENTER      &kp RALT      &kp RGUI
             >;
 
             sensor-bindings =
-                <&inc_dec_kp C_VOL_DN C_VOL_UP>,
-                <&inc_dec_kp PG_UP PG_DN>;
+                <&left_encoder C_VOL_DN C_VOL_UP>,
+                <&right_encoder LC(LEFT) LC(RIGHT)>;
         };
 
-        // SYM: hold left inner thumb  (Layer 1)
+        // SYM: hold right inner thumb  (Layer 1)
         // All keycodes tuned for Windows Spanish (ES) layout.
         // Row 1: !       @       #       $     %     | ^(dead)  &       *
         // Home:  (       )       {       }     [     ] | <       >       =     +     -       _
-        // Row 3: |       \       ;       :     '       | "       /       ?
+        // Row 3: |       \\       ;       :     '       | "       /       ?
         // Note: ^ at LS(LBKT) is a dead key in ES — press then SPACE for literal ^.
 
         sym_layer {
@@ -113,27 +127,29 @@
             >;
 
             sensor-bindings =
-                <&inc_dec_kp LC(Z) LC(Y)>,
-                <&inc_dec_kp PG_UP PG_DN>;
+                <&left_encoder LC(Z) LC(Y)>,
+                <&right_encoder LC(LEFT) LC(RIGHT)>;
         };
 
-        // NAV: hold right inner thumb  (Layer 2)
-        // Home: 1 2 3 4 5 | 6 7 8 9 0
-        // Bottom right: ← ↓ ↑ →
+        // NAV: hold left inner thumb  (Layer 2)
+        // Top row: F1-F6
+        // Second row: F7-F12
+        // Home row: transparent
+        // Bottom row: Vim arrows H← J↓ K↑ L→
 
         nav_layer {
             display-name = "nav";
             bindings = <
+&kp F1  &kp F2  &kp F3            &kp F4        &kp F5  &kp F6                     &trans  &trans    &trans    &trans   &trans     &trans
+&kp F7  &kp F8  &kp F9            &kp F10       &kp F11 &kp F12                    &trans  &trans    &trans    &trans   &trans     &trans
 &trans  &trans  &trans            &trans        &trans  &trans                     &trans  &trans    &trans    &trans   &trans     &trans
-&kp F1  &kp F2  &kp F3            &kp F4        &kp F5  &kp F6                     &kp F7  &kp F8    &kp F9    &kp F10  &kp F11    &kp F12
-&trans  &kp N1  &kp N2            &kp N3        &kp N4  &kp N5                     &kp N6  &kp N7    &kp N8    &kp N9   &kp N0     &trans
 &trans  &trans  &trans            &trans        &trans  &trans  &trans     &trans  &trans  &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT  &trans
                 &kp LEFT_CONTROL  &kp LEFT_ALT  &trans  &trans  &kp DEL    &trans  &trans  &trans    &trans    &trans
             >;
 
             sensor-bindings =
-                <&inc_dec_kp C_VOL_DN C_VOL_UP>,
-                <&inc_dec_kp LC(LEFT) LC(RIGHT)>;
+                <&left_encoder C_VOL_DN C_VOL_UP>,
+                <&right_encoder LC(LEFT) LC(RIGHT)>;
         };
 
         // FUN: SYM + NAV simultaneously  (Layer 3 — highest priority, overrides everything)
@@ -153,8 +169,8 @@
             >;
 
             sensor-bindings =
-                <&inc_dec_kp C_VOL_DN C_VOL_UP>,
-                <&inc_dec_kp PG_UP PG_DN>;
+                <&left_encoder C_VOL_DN C_VOL_UP>,
+                <&right_encoder LC(LEFT) LC(RIGHT)>;
         };
     };
 };
