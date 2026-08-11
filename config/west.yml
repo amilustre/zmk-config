@@ -4,11 +4,17 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: amilustre
+      url-base: https://github.com/amilustre
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
+    # Fork of ZMK v0.3 (branch v0.3-layer-peripheral): removes the
+    # "central-only" Kconfig restriction on ZMK_WIDGET_LAYER_STATUS so the
+    # layer name is also shown on the right (peripheral) OLED.
     - name: zmk
-      remote: zmkfirmware
+      remote: amilustre
+      revision: v0.3-layer-peripheral
       import: app/west.yml
   self:
     path: config
