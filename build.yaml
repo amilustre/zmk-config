@@ -23,3 +23,9 @@ include:
     shield: sofle_left
   - board: nice_nano_v2
     shield: sofle_right
+  # Cleanup firmware: resets BLE/settings on boot (ZMK official settings_reset
+  # shield, CONFIG_ZMK_SETTINGS_RESET_ON_START). Flash on a non-connecting
+  # half, let it boot once, then re-flash the normal firmware.
+  - board: nice_nano_v2
+    shield: settings_reset
+    artifact-name: settings_reset
