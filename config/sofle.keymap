@@ -173,19 +173,24 @@
 
         game_layer {
             display-name = "game";
-            // GAME v2 (12-08, feedback Alexis): TODO en la mitad izquierda
-            // (la derecha va a &none para no disparar teclas de BASE en
-            // combate). WASD desplazado una columna a la derecha: la D cae
-            // donde está la F en un teclado normal (D@F). E interactuar
-            // arriba de S, R recargar arriba de D, F linterna, K calmar,
-            // G caminar. Q (gritar) se OMITE a propósito: atrae zombis y
-            // queda en posición natural de accidente. Hotbar 1-8.
+            // GAME v2 (12-08, feedback Alexis + wiki Controls/es 41.78.19):
+            // TODO en la mitad izquierda (la derecha a &none para no
+            // disparar teclas de BASE en combate). WASD desplazado una
+            // columna a la derecha: la D cae donde está la F en un teclado
+            // normal (D@F). Binds REALES de PZ: E interactuar (sobre S),
+            // R recargar (sobre D), F linterna/faros, K FPS, C sigilo,
+            // V menú vehículo, B fabricación, G seguridad, Z asiento,
+            // LCTRL apuntar (o RMB en el ratón), I inventario (pulgar),
+            // SPACE cuerpo a cuerpo (pulgar), M mapa (pulgar), F2 pausa
+            // (pulgar), LSHIFT correr, ESC menú. Q (gritar) OMITIDO a
+            // propósito: atrae zombis y está en posición de accidente.
+            // Hotbar 1-8 (1-5 ranuras de arma).
             bindings = <
 &kp N1      &kp N2         &kp N3         &kp N4         &kp N5         &kp N6                            &none         &none          &none          &none          &none         &none
 &kp N7      &kp N8         &kp W          &kp E          &kp R          &kp K                            &none         &none          &none          &none          &none         &none
-&kp ESC     &kp TAB        &kp A          &kp S          &kp D          &kp F                            &none         &none          &none          &none          &none         &none
+&kp ESC     &kp LCTRL      &kp A          &kp S          &kp D          &kp F                            &none         &none          &none          &none          &none         &none
 &kp LSHFT   &kp Z          &kp C          &kp V          &kp B          &kp G    &none      &none         &none         &none          &none          &none          &none        &none
-                        &to 0           &kp M          &kp P          &kp SPACE      &kp TAB                          &none         &none          &none          &none        &none
+                        &to 0           &kp M          &kp F2          &kp SPACE      &kp I                            &none         &none          &none          &none        &none
             >;
 
             sensor-bindings =
