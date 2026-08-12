@@ -62,7 +62,6 @@
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 42 50 51 52 53 54>;
             hold-trigger-on-release;
         };
-
     };
 
     combos {
@@ -133,11 +132,11 @@
         nav_layer {
             display-name = "nav";
             bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6                     &trans  &trans  &trans  &trans  &trans  &trans
-&kp F7  &kp F8  &kp F9  &kp F10 &kp F11 &kp F12                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                     &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans
-                &kp LEFT_CONTROL  &kp LEFT_ALT  &trans  &trans  &kp DEL    &trans  &trans  &trans    &trans    &trans
+&kp F1  &kp F2  &kp F3            &kp F4        &kp F5   &kp F6                      &trans  &trans    &trans    &trans  &trans     &trans
+&kp F7  &kp F8  &kp F9            &kp F10       &kp F11  &kp F12                     &trans  &trans    &trans    &trans  &trans     &trans
+&trans  &kp N1  &kp N2            &kp N3        &kp N4   &kp N5                      &kp N6  &kp N7    &kp N8    &kp N9  &kp N0     &trans
+&trans  &trans  &trans            &trans        &trans   &trans   &trans     &trans  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans
+                &kp LEFT_CONTROL  &kp LEFT_ALT  &trans   &trans   &kp DEL    &trans  &trans  &trans    &trans    &trans
             >;
 
             sensor-bindings =
@@ -173,6 +172,7 @@
 
         game_layer {
             display-name = "game";
+
             // GAME v2 (12-08, feedback Alexis + wiki Controls/es 41.78.19):
             // TODO en la mitad izquierda (la derecha a &none para no
             // disparar teclas de BASE en combate). WASD desplazado una
@@ -185,12 +185,13 @@
             // (pulgar), LSHIFT correr, ESC menú. Q (gritar) OMITIDO a
             // propósito: atrae zombis y está en posición de accidente.
             // Hotbar 1-8 (1-5 ranuras de arma).
+
             bindings = <
-&kp N1      &kp N2         &kp N3         &kp N4         &kp N5         &kp N6                            &none         &none          &none          &none          &none         &none
-&kp N7      &kp N8         &kp W          &kp E          &kp R          &kp K                            &none         &none          &none          &none          &none         &none
-&kp ESC     &kp LCTRL      &kp A          &kp S          &kp D          &kp F                            &none         &none          &none          &none          &none         &none
-&kp LSHFT   &kp Z          &kp C          &kp V          &kp B          &kp G    &none      &none         &none         &none          &none          &none          &none        &none
-                        &to 0           &kp M          &kp F2          &kp SPACE      &kp I                            &none         &none          &none          &none        &none
+&kp N1          &kp N2     &kp N3  &kp N4  &kp N5  &kp N6                     &none  &none  &none  &none  &none  &none
+&kp N7          &kp Q      &kp K   &kp W   &kp E   &kp R                      &none  &none  &none  &none  &none  &none
+&kp LEFT_SHIFT  &kp LCTRL  &kp A   &kp S   &kp D   &kp F                      &none  &none  &none  &none  &none  &none
+&kp I           &kp Z      &kp C   &kp V   &kp B   &kp G      &none    &none  &none  &none  &none  &none  &none  &none
+                           &to 0   &kp M   &kp F2  &kp SPACE  &kp I    &none  &none  &none  &none  &none
             >;
 
             sensor-bindings =
@@ -208,11 +209,11 @@
         nix_layer {
             display-name = "nix";
             bindings = <
-&kp PRINTSCREEN  &kp LG(N1)     &kp LG(N2)     &kp LG(N3)     &kp LG(N4)     &kp LG(N5)                        &kp LG(N6)     &kp LG(N7)     &kp LG(N8)     &kp LG(N9)     &kp LG(N0)  &kp LG(PRINTSCREEN)
-&kp LG(ESC)      &kp LG(LS(N1)) &kp LG(LS(N2)) &kp LG(LS(N3)) &kp LG(LS(N4)) &kp LG(LS(N5))                    &kp LG(LS(N6)) &kp LG(LS(N7)) &kp LG(LS(N8)) &kp LG(LS(N9)) &kp LG(LS(N0)) &trans
-&trans           &trans         &trans         &kp LG(D)      &kp LG(F)      &trans                             &kp LG(H)      &kp LG(LEFT)   &kp LG(RIGHT)  &kp LG(L)      &trans        &trans
-&trans           &trans         &trans         &trans         &kp LG(V)      &trans    &none      &none          &trans         &trans         &trans         &kp LG(DOT)    &trans        &trans
-                        &trans         &trans         &trans         &trans         &trans                          &trans        &to 0          &kp LG(RETURN) &trans         &trans
+&kp PRINTSCREEN  &kp LG(N1)      &kp LG(N2)      &kp LG(N3)      &kp LG(N4)      &kp LG(N5)                        &kp LG(N6)      &kp LG(N7)      &kp LG(N8)      &kp LG(N9)      &kp LG(N0)      &kp LG(PRINTSCREEN)
+&kp LG(ESC)      &kp LG(LS(N1))  &kp LG(LS(N2))  &kp LG(LS(N3))  &kp LG(LS(N4))  &kp LG(LS(N5))                    &kp LG(LS(N6))  &kp LG(LS(N7))  &kp LG(LS(N8))  &kp LG(LS(N9))  &kp LG(LS(N0))  &trans
+&trans           &trans          &trans          &kp LG(D)       &kp LG(F)       &trans                            &kp LG(H)       &kp LG(LEFT)    &kp LG(RIGHT)   &kp LG(L)       &trans          &trans
+&trans           &trans          &trans          &trans          &kp LG(V)       &trans          &none     &none   &trans          &trans          &trans          &kp LG(DOT)     &trans          &trans
+                                 &trans          &trans          &trans          &trans          &trans    &trans  &to 0           &kp LG(RETURN)  &trans          &trans
             >;
 
             sensor-bindings =
